@@ -18,7 +18,7 @@
 .font-open-sans {
     font-family: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
 }
-
+/* Shake for button */
 @keyframes shake {
     0% {
         transform: translateX(0);
@@ -46,6 +46,7 @@
     animation-delay: 1s;
 }
 
+/* Draw lines */
 @keyframes draw {
     0% {
         transform: scaleY(0);
@@ -83,6 +84,73 @@
     animation-delay: 0.3s;
 }
 
+/* Draw borders */
+/* горизонтальные линии: центр → края */
+@keyframes borderXFromCenter {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+.animate-borderX {
+    transform-origin: center; /* центр линии как точка роста */
+    animation: borderXFromCenter 0.6s ease-out forwards;
+}
+
+/* вертикальные линии: сверху и снизу к центру */
+@keyframes borderYFromEdges {
+    0% {
+        transform: scaleY(0);
+    }
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+.animate-borderY-left::before,
+.animate-borderY-left::after,
+.animate-borderY-right::before,
+.animate-borderY-right::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    background: black;
+    transform: scaleY(0);
+    animation-delay: 0.5s;
+}
+
+.animate-borderY-left::before {
+    top: 0;
+    transform-origin: top;
+    animation: borderYFromEdges 0.6s ease-out forwards;
+    animation-delay: 0.5s;
+}
+.animate-borderY-left::after {
+    bottom: 0;
+    transform-origin: bottom;
+    animation: borderYFromEdges 0.6s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+.animate-borderY-right::before {
+    top: 0;
+    transform-origin: top;
+    animation: borderYFromEdges 0.6s ease-out forwards;
+    animation-delay: 0.5s;
+}
+.animate-borderY-right::after {
+    bottom: 0;
+    transform-origin: bottom;
+    animation: borderYFromEdges 0.6s ease-out forwards;
+    animation-delay: 0.5s;
+}
+
+/* Animation from bottom to up */
+
 @keyframes fadeInUp {
     0% {
         opacity: 0;
@@ -99,12 +167,61 @@
     animation: fadeInUp 1s forwards ease-out;
 }
 
-.delay-100 {
+/* Animation from center */
+@keyframes fadeInCenter {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+.fade-in-center {
+    animation: fadeInCenter 0.5s ease-out forwards;
+}
+
+/* Animation delays timer */
+.animation-delay-100 {
     animation-delay: 0.3s;
 }
-.delay-200 {
+.animation-delay-150 {
+    animation-delay: 0.35s;
+}
+.animation-delay-200 {
+    animation-delay: 0.4s;
+}
+.animation-delay-250 {
+    animation-delay: 0.45s;
+}
+.animation-delay-300 {
+    animation-delay: 0.5s;
+}
+.animation-delay-350 {
+    animation-delay: 0.65s;
+}
+.animation-delay-400 {
     animation-delay: 0.7s;
 }
-.delay-300 {
+.animation-delay-450 {
+    animation-delay: 0.75s;
+}
+.animation-delay-500 {
+    animation-delay: 0.8s;
+}
+.animation-delay-550 {
+    animation-delay: 0.85s;
+}
+.animation-delay-600 {
+    animation-delay: 0.9s;
+}
+.animation-delay-700 {
+    animation-delay: 0.95s;
+}
+.animation-delay-800 {
+    animation-delay: 1s;
+}
+.animation-delay-900 {
     animation-delay: 1.1s;
 }

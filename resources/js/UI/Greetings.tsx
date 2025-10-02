@@ -12,7 +12,7 @@ function SplitText({ text, className = '' }: { text: string; className?: string 
             className={`whitespace-nowrap ${className}`}
             initial="hidden"
             animate="visible"
-            transition={{ staggerChildren: 0.05, staggerDirection: -1 }} // справа налево
+            transition={{ staggerChildren: 0.09, staggerDirection: -1 }} // справа налево
         >
             {text.split('').map((char, i) => (
                 <motion.span key={i} variants={letterVariants} style={{ display: 'inline-block' }}>
@@ -27,7 +27,7 @@ function Greetings() {
     const { scrollYProgress } = useScroll();
 
     const scrollX = useTransform(scrollYProgress, [0, 0.3, 1], [0, -1500, -500]);
-    const smoothX = useSpring(scrollX, { stiffness: 70, damping: 20 });
+    const smoothX = useSpring(scrollX, { stiffness: 40, damping: 20 });
 
     const scrollOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
 

@@ -2,7 +2,7 @@ import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
 function HeroImg() {
     const { scrollYProgress } = useScroll();
 
-    const scrollX = useTransform(scrollYProgress, [0, 0.3, 1], [-50, 1500, 500]);
+    const scrollX = useTransform(scrollYProgress, [0, 0.3, 1], [0, 1500, 500]);
     const smoothX = useSpring(scrollX, { stiffness: 50, damping: 20 });
 
     const scrollOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);

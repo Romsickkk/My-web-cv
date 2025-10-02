@@ -2,6 +2,7 @@ import AboutMe from '@/UI/AboutMe';
 import Hero from '@/UI/Hero';
 import ItBerries from '@/UI/ItBerries';
 import LoremText from '@/UI/LoremText';
+import Skills from '@/UI/Skills';
 import { useEffect, useRef } from 'react';
 
 export default function Welcome() {
@@ -57,11 +58,12 @@ export default function Welcome() {
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
-            className="overflow-hidden"
+            className="overflow-hidden select-none"
         >
             <Hero />
             <ItBerries />
             <AboutMe />
+            <Skills />
             <LoremText />
         </div>
     );
