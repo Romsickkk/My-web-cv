@@ -4,7 +4,7 @@ import FadeInOnView from './FadeInOnView';
 
 function AboutMe() {
     return (
-        <div className="flex flex-col items-center justify-center bg-[#d6d6d6]">
+        <div className="animation-delay-100 flex flex-col items-center justify-center bg-[#d6d6d6]">
             <div>
                 <FadeInOnView>
                     <AnimatedCard name="ABOUT ME" className="mt-30" />

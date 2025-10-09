@@ -2,6 +2,7 @@ import AboutMe from '@/UI/AboutMe';
 import Hero from '@/UI/Hero';
 import ItBerries from '@/UI/ItBerries';
 import LoremText from '@/UI/LoremText';
+import Portfolio from '@/UI/Portfolio';
 import Skills from '@/UI/Skills';
 import { useEffect, useRef } from 'react';
 
@@ -14,10 +15,13 @@ export default function Welcome() {
     const rafId = useRef<number | null>(null);
 
     const handleMouseDown = (e: React.MouseEvent) => {
+        if (e.button !== 0) return;
+
         isDragging.current = true;
         startY.current = e.clientY;
         startScroll.current = window.scrollY;
         lastY.current = e.clientY;
+
         if (rafId.current) cancelAnimationFrame(rafId.current);
     };
 
@@ -64,6 +68,7 @@ export default function Welcome() {
             <ItBerries />
             <AboutMe />
             <Skills />
+            <Portfolio />
             <LoremText />
         </div>
     );

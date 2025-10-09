@@ -27,7 +27,7 @@ function FadeInOnView({ children }: { children: React.ReactNode }) {
                     observer.disconnect();
                 }
             },
-            { threshold: 0.5 },
+            { threshold: 0.7 },
         );
 
         if (ref.current) observer.observe(ref.current);
@@ -35,12 +35,11 @@ function FadeInOnView({ children }: { children: React.ReactNode }) {
         return () => observer.disconnect();
     }, []);
 
-    // 1. Пока не видно → рисуем заглушку размером детей
     if (!isVisible) {
         return (
             <>
                 <div ref={ref} style={{ width: size.w, height: size.h }} />
-                {/* невидимая копия для измерения */}
+
                 <div ref={measureRef} style={{ position: 'absolute', visibility: 'hidden', pointerEvents: 'none' }}>
                     {children}
                 </div>
