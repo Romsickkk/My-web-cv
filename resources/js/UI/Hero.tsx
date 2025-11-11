@@ -1,4 +1,3 @@
-// import rectangle from '/Rectangle.svg';
 import Greetings from './Greetings';
 import HeroImg from './HeroImg';
 import NavBar from './NavBar';

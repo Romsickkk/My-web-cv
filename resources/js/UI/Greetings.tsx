@@ -12,7 +12,7 @@ function SplitText({ text, className = '' }: { text: string; className?: string 
             className={`whitespace-nowrap ${className}`}
             initial="hidden"
             animate="visible"
-            transition={{ staggerChildren: 0.09, staggerDirection: -1 }} // справа налево
+            transition={{ staggerChildren: 0.09, staggerDirection: -1 }}
         >
             {text.split('').map((char, i) => (
                 <motion.span key={i} variants={letterVariants} style={{ display: 'inline-block' }}>

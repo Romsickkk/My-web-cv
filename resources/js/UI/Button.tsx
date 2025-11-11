@@ -1,6 +1,6 @@
 type ButtonProps = {
     text: string;
-    onClick: () => void;
+    onClick?: (() => void) | ((e: React.MouseEvent<HTMLButtonElement>) => void);
     color?: 'white' | 'black';
     styles?: string;
 };
@@ -23,6 +23,7 @@ function Button({ text, onClick, color = 'white', styles }: ButtonProps) {
             onTouchEnd={handlePressEnd}
             onContextMenu={(e) => e.preventDefault()}
             onClick={onClick}
+            type="button"
         >
             {text}
             <span

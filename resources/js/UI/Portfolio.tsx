@@ -12,7 +12,7 @@ function Portfolio() {
             </div>
 
             <PortfolioExamples />
-            <p className="my-5 text-white">And many more to come!</p>
+            <p className="my-3 text-white">And many more to come!</p>
         </div>
     );
 }

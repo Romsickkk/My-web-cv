@@ -47,7 +47,6 @@ function FadeInOnView({ children }: { children: React.ReactNode }) {
         );
     }
 
-    // 2. Когда видно → анимируем реальный контент
     return (
         <div ref={ref} className="transform transition-all duration-100 ease-out">
             {children}

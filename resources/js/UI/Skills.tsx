@@ -13,7 +13,7 @@ function Skills() {
         if (isMoreSkills) {
             setIsMoreSkills((prev) => !prev);
         } else {
-            const timeout = setTimeout(() => {
+            setTimeout(() => {
                 setIsMoreSkills((prev) => !prev);
             }, 680);
         }
@@ -22,7 +22,7 @@ function Skills() {
     return (
         <div className="flex flex-col items-center justify-center bg-[#d6d6d6]">
             <FadeInOnView>
-                <AnimatedCard name="SKILLS" className="mt-10" />
+                <AnimatedCard name="SKILLS" className="animation-delay-250 mt-10" />
             </FadeInOnView>
             <div className="mx-auto mb-20 flex flex-col md:w-[700px]">
                 <h2 className={`fade-in-up font-montserrat mb-10 h-15 w-80 text-2xl font-bold select-none max-sm:text-center md:pl-5`}>USING NOW:</h2>
