@@ -5,10 +5,9 @@ import FadeInOnView from './FadeInOnView';
 
 function Contact() {
     return (
-        <div className="animation-delay-100 flex flex-col items-center justify-center bg-[#d6d6d6]">
-            {' '}
+        <div id="contact" className="animation-delay-100 flex flex-col items-center justify-center bg-[#d6d6d6] pb-10">
             <FadeInOnView>
-                <AnimatedCard name="CONTACT" className="mt-30" />
+                <AnimatedCard name="CONTACT" className="mt-15" />
             </FadeInOnView>
             <FadeInOnView>
                 <p className="fade-in-up font-open-sans px-2 text-center md:px-70">
@@ -19,7 +18,9 @@ function Contact() {
             <FadeInOnView>
                 <Arrows />
             </FadeInOnView>
-            <CustomForm />
+            <FadeInOnView>
+                <CustomForm />
+            </FadeInOnView>
         </div>
     );
 }

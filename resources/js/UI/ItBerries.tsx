@@ -39,7 +39,7 @@ function ItBerries() {
                 )}
             </div>
 
-            <Button text={expanded ? 'Collapse' : 'Learn More'} onClick={handleLearnMore} styles="mt-10 mb-10 ml-20" />
+            <Button text={expanded ? 'Collapse' : 'Learn More'} onClick={handleLearnMore} styles="mt-10 mb-10 ml-20" width={2} />
         </div>
     );
 }

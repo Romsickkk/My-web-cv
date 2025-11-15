@@ -30,8 +30,13 @@ function CustomCursor() {
         };
 
         const animate = () => {
-            x += (targetX - x) * 0.2;
-            y += (targetY - y) * 0.2;
+            if (mouseDown) {
+                x += targetX - x;
+                y += targetY - y;
+            } else {
+                x += (targetX - x) * 0.2;
+                y += (targetY - y) * 0.2;
+            }
 
             scale += (targetScale - scale) * 0.2;
 
@@ -53,12 +58,12 @@ function CustomCursor() {
                         break;
                     }
                     if (node.tagName === 'INPUT' || node.tagName === 'TEXTAREA') {
-                        targetWidth = 5;
+                        targetWidth = 3;
                     }
                     node = node.parentElement;
                 }
 
-                targetScale = isClickable ? 1.5 : 1;
+                targetScale = isClickable ? 1.7 : 1;
             }
 
             const currentWidth = parseFloat(cursor.style.width) || 32;

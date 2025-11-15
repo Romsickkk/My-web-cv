@@ -20,6 +20,8 @@ function FadeInOnView({ children }: { children: React.ReactNode }) {
     }, []);
 
     useEffect(() => {
+        const isMobile = window.innerWidth < 768;
+        const threshold = isMobile ? 0.3 : 0.7;
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
@@ -27,7 +29,7 @@ function FadeInOnView({ children }: { children: React.ReactNode }) {
                     observer.disconnect();
                 }
             },
-            { threshold: 0.7 },
+            { threshold },
         );
 
         if (ref.current) observer.observe(ref.current);
@@ -38,9 +40,20 @@ function FadeInOnView({ children }: { children: React.ReactNode }) {
     if (!isVisible) {
         return (
             <>
-                <div ref={ref} style={{ width: size.w, height: size.h }} />
+                <div ref={ref} style={{ width: '100%', height: size.h }} />
 
-                <div ref={measureRef} style={{ position: 'absolute', visibility: 'hidden', pointerEvents: 'none' }}>
+                <div
+                    ref={measureRef}
+                    style={{
+                        position: 'fixed',
+
+                        left: 0,
+                        right: 0,
+                        width: '100%',
+                        visibility: 'hidden',
+                        pointerEvents: 'none',
+                    }}
+                >
                     {children}
                 </div>
             </>

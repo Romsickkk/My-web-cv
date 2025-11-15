@@ -10,14 +10,14 @@ export const useSmoothScroll = (isModalOpen: React.RefObject<boolean>) => {
     const currentScroll = useRef(0);
     const targetScroll = useRef(0);
     const isAnimating = useRef(false);
-
     window.scrollTo(0, 0);
     useEffect(() => {
-        const handleLoad = () => {
+        const handleLoad = () => window.scrollTo(0, 0);
+        {
             const initialY = window.scrollY || 0;
             currentScroll.current = initialY;
             targetScroll.current = initialY;
-        };
+        }
 
         if (document.readyState === 'complete') {
             handleLoad();
@@ -47,6 +47,7 @@ export const useSmoothScroll = (isModalOpen: React.RefObject<boolean>) => {
 
         const handleWheel = (e: WheelEvent) => {
             if (isModalOpen.current) return;
+
             e.preventDefault();
 
             if (rafId.current) {
@@ -54,6 +55,12 @@ export const useSmoothScroll = (isModalOpen: React.RefObject<boolean>) => {
                 rafId.current = null;
                 velocity.current = 0;
                 isDragging.current = false;
+            }
+
+            // Синхронизируем состояние ТОЛЬКО если не анимировали до этого
+            if (!isAnimating.current) {
+                currentScroll.current = window.scrollY;
+                targetScroll.current = window.scrollY;
             }
 
             targetScroll.current += e.deltaY * scrollSpeed;
@@ -77,14 +84,20 @@ export const useSmoothScroll = (isModalOpen: React.RefObject<boolean>) => {
     return {
         handleMouseDown: (e: React.MouseEvent) => {
             if (e.button !== 0) return;
+
+            currentScroll.current = window.scrollY;
+            targetScroll.current = window.scrollY;
+
             isDragging.current = true;
             startY.current = e.clientY;
             startScroll.current = window.scrollY;
             lastY.current = e.clientY;
+
             if (rafId.current) cancelAnimationFrame(rafId.current);
         },
         handleMouseMove: (e: React.MouseEvent) => {
             if (!isDragging.current || isModalOpen.current) return;
+
             const delta = lastY.current - e.clientY;
             velocity.current = delta;
             const newScroll = window.scrollY + delta;

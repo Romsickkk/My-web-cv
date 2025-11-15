@@ -2,7 +2,7 @@ import AnimatedCard from './AnimatedCard';
 import PortfolioExamples from './PortfolioExamples';
 function Portfolio() {
     return (
-        <div className="flex flex-col items-center bg-[#1a1a1a]">
+        <div id="portfolio" className="flex flex-col items-center bg-[#1a1a1a]">
             <div className="relative w-full">
                 <img src="/mountains.webp" alt="mountains" className="h-[200px] w-full object-cover max-sm:h-[300px]" />
 

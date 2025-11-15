@@ -20,7 +20,7 @@ function Skills() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center bg-[#d6d6d6]">
+        <div id="skills" className="flex flex-col items-center justify-center bg-[#d6d6d6]">
             <FadeInOnView>
                 <AnimatedCard name="SKILLS" className="animation-delay-250 mt-10" />
             </FadeInOnView>

@@ -187,10 +187,22 @@ img {
         transform: translateY(0);
     }
 }
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
 .fade-in-up {
     opacity: 0;
     animation: fadeInUp 1s forwards ease-out;
+}
+.fade-in-down {
+    opacity: 0;
+    animation: fadeInDown 0.5s forwards ease-in;
 }
 
 /* Animation from center */
@@ -205,9 +217,26 @@ img {
     }
 }
 .fade-in-center {
-    animation: fadeInCenter 0.5s ease-out forwards;
+    animation: fadeInCenter 1s ease-out forwards;
 }
 
+@keyframes growWidth {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes growHeight {
+    from {
+        height: 0;
+    }
+    to {
+        height: 100%;
+    }
+}
 /* Animation delays timer */
 .animation-delay-100 {
     animation-delay: 0.3s;
