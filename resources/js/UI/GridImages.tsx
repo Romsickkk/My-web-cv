@@ -10,7 +10,7 @@ type ImgsProps = {
 
 function GridImages({ imgs, className, onSelect }: ImgsProps) {
     return (
-        <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3 max-md:flex max-md:flex-col">
             {imgs.map((img) => (
                 <motion.img
                     layoutId={img}

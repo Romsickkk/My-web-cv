@@ -46,7 +46,7 @@ function PortfolioExamples() {
         <div className="bg-[#1a1a1a] text-white">
             <div className="flex flex-col items-center bg-[#1a1a1a] pt-10 text-white">
                 {/* Tabs */}
-                <div className="relative mb-5 flex justify-center gap-10">
+                <div className="relative mb-5 flex justify-center gap-10 max-md:gap-2">
                     <div className="absolute bottom-0 left-0 h-[2px] w-full bg-gray-500 before:absolute before:left-[-20px] before:h-[2px] before:w-[20px] before:bg-gray-500 after:absolute after:right-[-20px] after:h-[2px] after:w-[20px] after:bg-gray-500"></div>
 
                     {['All', 'LuxeMusic', 'Admin Panel'].map((name, index) => (
@@ -93,7 +93,7 @@ function PortfolioExamples() {
                             layoutId={selectedImage}
                             src={`/${selectedImage}`}
                             alt={selectedImage.replace(/\.[^/.]+$/, '')}
-                            className="max-h-[90%] max-w-[90%] rounded-xl object-contain shadow-2xl"
+                            className="z-100000 max-h-[90%] max-w-[90%] rounded-xl object-contain shadow-2xl"
                             variants={{
                                 visible: { scale: 1 },
                                 exit: { scale: 0.9, transition: { duration: 0.25 } },

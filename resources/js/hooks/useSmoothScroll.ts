@@ -57,7 +57,6 @@ export const useSmoothScroll = (isModalOpen: React.RefObject<boolean>) => {
                 isDragging.current = false;
             }
 
-            // Синхронизируем состояние ТОЛЬКО если не анимировали до этого
             if (!isAnimating.current) {
                 currentScroll.current = window.scrollY;
                 targetScroll.current = window.scrollY;
