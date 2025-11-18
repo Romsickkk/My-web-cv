@@ -1,26 +1,25 @@
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
-import { useEffect, useState } from 'react';
 
 function HeroImg() {
     const { scrollYProgress } = useScroll();
 
-    const [windowWidth, setWindowWidth] = useState(0);
+    // const [_windowWidth, setWindowWidth] = useState(0);
 
     const scrollX = useTransform(scrollYProgress, [0, 0.3, 1], [0, 1500, 500]);
     const smoothX = useSpring(scrollX, { stiffness: 50, damping: 20 });
 
-    const scrollOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+    // const _scrollOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
 
-    useEffect(() => {
-        setWindowWidth(window.innerWidth);
+    // useEffect(() => {
+    //     setWindowWidth(window.innerWidth);
 
-        const handleResize = () => {
-            setWindowWidth(window.innerWidth);
-        };
+    //     const handleResize = () => {
+    //         setWindowWidth(window.innerWidth);
+    //     };
 
-        window.addEventListener('resize', handleResize);
-        return () => window.removeEventListener('resize', handleResize);
-    }, []);
+    //     window.addEventListener('resize', handleResize);
+    //     return () => window.removeEventListener('resize', handleResize);
+    // }, []);
 
     return (
         <div className="overflow relative h-full w-full bg-contain bg-no-repeat max-lg:h-screen">

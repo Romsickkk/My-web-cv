@@ -11,9 +11,9 @@ function ItBerries() {
         if (isMoreText) {
             setIsMoreText((prev) => !prev);
         } else {
-            const timeout = setTimeout(() => {
-                setIsMoreText((prev) => !prev);
-            }, 500);
+            // const timeout = setTimeout(() => {
+            //     setIsMoreText((prev) => !prev);
+            // }, 500);
         }
     }
 

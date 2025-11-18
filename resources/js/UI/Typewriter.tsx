@@ -11,9 +11,8 @@ function Typewriter({ className, text, speed = 50 }: Props) {
 
     useEffect(() => {
         let i = 0;
-        let interval: NodeJS.Timeout;
 
-        interval = setInterval(() => {
+        const interval: NodeJS.Timeout = setInterval(() => {
             if (i + 1 < text.length) {
                 setDisplayedText((prev) => prev + text[i]);
                 i++;
