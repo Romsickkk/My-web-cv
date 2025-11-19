@@ -1,0 +1,52 @@
+{
+    "nav": {
+        "about": "About me",
+        "skills": "Skills",
+        "portfolio": "Portfolio",
+        "contacts": "CONTACT ME"
+    },
+    "welcome": {
+        "greetings": "Hi, I am",
+        "name": "Roman Babayan",
+        "specialty": "Full stack Developer"
+    },
+    "profession": {
+        "title": "FULL-STACK ENGINEER",
+        "subtitle": "Frontend Developer",
+        "moreInfo": "more info",
+        "button": "Learn More"
+    },
+    "aboutMe": {
+        "title": "ABOUT ME",
+        "subtitle": "ABout",
+        "frontend": "fronttext",
+        "backend": "backendtext",
+        "otherSkills": "backendtext"
+    },
+    "skills": {
+        "title": "SKILLS",
+        "subtitle": "USING NOW",
+        "button": "More Info"
+    },
+    "portfolio": {
+        "title": "PORTFOLIO",
+        "1": "All",
+        "2": "Luxe Music",
+        "3": "Admin Panel",
+        "button": "And many more to come!"
+    },
+    "contact": {
+        "title": "CONTACT",
+        "subtitle": "Subtitle",
+        "name": "ENTER YOUR NAME",
+        "email": "ENTER YOUR EMAIL",
+        "phone": "PHONE NUMBER",
+        "message": "YOUR MESSAGE",
+        "button": "SUBMIT"
+    },
+    "footer": {
+        "button": "BACK TO TOP",
+        "name": "Roman Babayan",
+        "rights": "All Eights Reserved"
+    }
+}

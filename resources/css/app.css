@@ -205,6 +205,10 @@ img {
     animation: fadeInDown 0.5s forwards ease-in;
 }
 
+::selection {
+    background: #000000;
+    color: rgb(255, 255, 255);
+}
 /* Animation from center */
 @keyframes fadeInCenter {
     0% {

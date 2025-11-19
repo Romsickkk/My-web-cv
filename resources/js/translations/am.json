@@ -1,0 +1,52 @@
+{
+    "nav": {
+        "about": "Իմ մասին",
+        "skills": "Հմտություններ",
+        "portfolio": "Պորտֆոլիո",
+        "contacts": "Կապ"
+    },
+    "welcome": {
+        "greetings": "Բարև, ես",
+        "name": "Ռոման Բաբայան ԵՄ",
+        "specialty": "Full stack Ծրագրավորող"
+    },
+    "profession": {
+        "title": "FULL-STACK ԻՆԺԵՆԵՐ",
+        "subtitle": "Frontend ծրագրավորող",
+        "moreInfo": "Ավելին",
+        "button": "Իմանալ ավելին"
+    },
+    "aboutMe": {
+        "title": "ԻՄ ՄԱՍԻՆ",
+        "subtitle": "Իմ մասին",
+        "frontend": "Ֆրոնտենդի մասին տեքստ",
+        "backend": "Բեքենդի մասին տեքստ",
+        "otherSkills": "Այլ հմտություններ"
+    },
+    "skills": {
+        "title": "ՀՄՏՈւԹՅՈւՆՆԵՐ",
+        "subtitle": "ՕԳՏԱԳՈՐԾՈՒՄ ԵՄ ՀԻՄԱ",
+        "button": "Ավելին"
+    },
+    "portfolio": {
+        "title": "ՊՈՐՏՖՈԼԻՈ",
+        "1": "Բոլորը",
+        "2": "Luxe Music",
+        "3": "Admin Panel",
+        "button": "Եվ շատ ավելին շուտով"
+    },
+    "contact": {
+        "title": "ԿԱՊ",
+        "subtitle": "Եկեք կապվենք",
+        "name": "ՁԵՐ ԱՆՈՒՆԸ",
+        "email": "ՁԵՐ ԷԼ. ՀԱՍՑԵԸ",
+        "phone": "ՀԵՌԱԽՈՍԱՀԱՄԱՐ",
+        "message": "ՁԵՐ ՀԱՂՈՐԴԱԳՐՈՒԹՅՈՒՆԸ",
+        "button": "ՈՒՂԱՐԿԵԼ"
+    },
+    "footer": {
+        "button": "ՎԵՐԵՎ",
+        "name": "Ռոման Բաբայան",
+        "rights": "Բոլոր իրավունքները պաշտպանված են"
+    }
+}

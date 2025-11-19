@@ -16,7 +16,7 @@ function Button({ text, onClick, color = 'white', styles, width = 3 }: ButtonPro
     };
     return (
         <button
-            className={`font-montserrat group relative w-[200px] overflow-hidden px-6 py-2 transition-transform duration-200 select-none hover:-translate-y-2 hover:cursor-pointer active:-translate-y-2 text-${color} ${styles}`}
+            className={`font-montserrat group relative w-[200px] overflow-hidden px-6 py-2 transition-transform duration-200 select-none hover:-translate-y-2 hover:cursor-pointer text-${color} ${styles}`}
             onMouseDown={handlePressStart}
             onMouseUp={handlePressEnd}
             onMouseLeave={handlePressEnd}

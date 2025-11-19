@@ -1,0 +1,52 @@
+{
+    "nav": {
+        "about": "Обо мне",
+        "skills": "Навыки",
+        "portfolio": "Портфолио",
+        "contacts": "Связаться"
+    },
+    "welcome": {
+        "greetings": "Привет, я",
+        "name": "Роман Бабаян",
+        "specialty": "Full stack Разработчик"
+    },
+    "profession": {
+        "title": "FULL-STACK ИНЖЕНЕР",
+        "subtitle": "Frontend разработчик",
+        "moreInfo": "Подробнее",
+        "button": "Узнать Больше"
+    },
+    "aboutMe": {
+        "title": "ОБО МНЕ",
+        "subtitle": "Обо мне",
+        "frontend": "Текст о фронтенде",
+        "backend": "Текст о бэкенде",
+        "otherSkills": "Другие навыки"
+    },
+    "skills": {
+        "title": "НАВЫКИ",
+        "subtitle": "ИСПОЛЬЗУЮ СЕЙЧАС",
+        "button": "Подробнее"
+    },
+    "portfolio": {
+        "title": "ПОРТФОЛИО",
+        "1": "Все",
+        "2": "Luxe Music",
+        "3": "Admin Panel",
+        "button": "И это только начало!"
+    },
+    "contact": {
+        "title": "КОНТАКТЫ",
+        "subtitle": "Свяжитесь со мной",
+        "name": "ВАШЕ ИМЯ",
+        "email": "ВАШ EMAIL",
+        "phone": "НОМЕР ТЕЛЕФОНА",
+        "message": "ВАШЕ СООБЩЕНИЕ",
+        "button": "ОТПРАВИТЬ"
+    },
+    "footer": {
+        "button": "НАВЕРХ",
+        "name": "Roman Babayan",
+        "rights": "Все права защищены"
+    }
+}
