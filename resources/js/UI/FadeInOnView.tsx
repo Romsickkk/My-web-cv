@@ -1,3 +1,4 @@
+import { useT } from '@/context/LangContext';
 import { useEffect, useRef, useState } from 'react';
 
 function FadeInOnView({ children }: { children: React.ReactNode }) {
@@ -5,6 +6,7 @@ function FadeInOnView({ children }: { children: React.ReactNode }) {
     const measureRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
     const [size, setSize] = useState<{ w: number; h: number }>({ w: 0, h: 0 });
+    const t = useT();
 
     useEffect(() => {
         if (!measureRef.current) return;
@@ -61,7 +63,7 @@ function FadeInOnView({ children }: { children: React.ReactNode }) {
     }
 
     return (
-        <div ref={ref} className="transform transition-all duration-100 ease-out">
+        <div ref={ref} key={t} className="transform transition-all duration-100 ease-out">
             {children}
         </div>
     );

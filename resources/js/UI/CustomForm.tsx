@@ -1,33 +1,14 @@
+import { useT } from '@/context/LangContext';
 import { useState } from 'react';
 import { z } from 'zod';
 import Button from './Button';
 
-const formSchema = z.object({
-    username: z.string().min(1, 'Enter your name'),
-    email: z.email('Invalid email address'),
-    phone: z
-        .string()
-        .optional()
-        .refine((val) => !val || val.replace(/\D/g, '').length >= 3, {
-            message: 'Phone must contain at least 3 digits',
-        })
-        .refine((val) => !val || /^[\d+]+$/.test(val), {
-            message: 'Only numbers and + are allowed',
-        })
-        .refine((val) => !val || val.replace(/\D/g, '').length <= 20, {
-            message: 'Phone must contain no more than 20 digits',
-        }),
-    text: z.string().min(1, 'Write your message').max(250, 'Maximum 250 characters allowed'),
-});
-
-type FormData = z.infer<typeof formSchema>;
-
 function CustomForm() {
+    type FormData = z.infer<typeof formSchema>;
     const inputStyles = ' shadow-md focus:outline-none font-montserrat font-bold p-2 w-full max-w-md ';
     const errorStyles = 'font-montserrat mt-1 text-sm font-bold text-red-500';
 
     const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
-
     const [formData, setFormData] = useState<FormData>({
         username: '',
         email: '',
@@ -35,12 +16,31 @@ function CustomForm() {
         text: '',
     });
 
+    const t = useT();
+    const formSchema = z.object({
+        username: z.string().min(1, t.contact.nameError),
+        email: z.email(t.contact.emailError),
+        phone: z
+            .string()
+            .optional()
+            .refine((val) => !val || val.replace(/\D/g, '').length >= 3, {
+                message: t.contact.phoneError1,
+            })
+            .refine((val) => !val || /^[\d+]+$/.test(val), {
+                message: t.contact.phoneError2,
+            })
+            .refine((val) => !val || val.replace(/\D/g, '').length <= 20, {
+                message: t.contact.phoneError3,
+            }),
+        text: z.string().min(1, t.contact.messageError1).max(250, t.contact.messageError2),
+    });
+
     function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
         const { name, value } = e.target;
 
         setFormData((prev) => ({
             ...prev,
-            [name]: name === 'phone' ? value.replace(/[^0-9+]/g, '') : value,
+            [name]: name === 'phone' ? value.replace(/[^\d+]/g, '').replace(/(?!^)\+/g, '') : value,
         }));
     }
 
@@ -51,7 +51,7 @@ function CustomForm() {
         const result = formSchema.safeParse(formData);
         if (!result.success) {
             const fieldErrors: Partial<Record<keyof FormData, string>> = {};
-            console.log('Не валидна:', formData);
+            console.log('Error:', formData);
             result.error.issues.forEach((issue) => {
                 const field = issue.path[0] as keyof FormData;
                 if (!fieldErrors[field]) {
@@ -62,8 +62,6 @@ function CustomForm() {
             setErrors(fieldErrors);
             return;
         }
-
-        console.log('Форма валидна:', formData);
     }
     return (
         <form onSubmit={handleSubmit} className="fade-in-up flex w-150 flex-col items-center gap-10 px-5 duration-300 max-sm:w-100">
@@ -74,8 +72,8 @@ function CustomForm() {
                     <input
                         type="text"
                         name="username"
-                        placeholder="ENTER YOUR NAME*"
-                        className={`${inputStyles} fade-in-up`}
+                        placeholder={`${t.contact.name}*`}
+                        className={`${inputStyles} no-drag-scroll fade-in-up`}
                         value={formData.username}
                         onChange={handleChange}
                     />
@@ -92,8 +90,8 @@ function CustomForm() {
                     <input
                         type="text"
                         name="email"
-                        placeholder="ENTER YOUR EMAIL*"
-                        className={`${inputStyles} fade-in-up animation-delay-300`}
+                        placeholder={`${t.contact.email}*`}
+                        className={`${inputStyles} no-drag-scroll fade-in-up animation-delay-300`}
                         value={formData.email}
                         onChange={handleChange}
                     />
@@ -110,8 +108,8 @@ function CustomForm() {
                     <input
                         type="text"
                         name="phone"
-                        placeholder="PHONE NUMBER"
-                        className={`${inputStyles} fade-in-up animation-delay-500`}
+                        placeholder={`${t.contact.phone}`}
+                        className={`${inputStyles} no-drag-scroll fade-in-up animation-delay-500`}
                         value={formData.phone}
                         onChange={handleChange}
                     />
@@ -127,8 +125,8 @@ function CustomForm() {
                 <div className="animation-delay-400 fade-in-up relative w-full max-w-md overflow-hidden">
                     <textarea
                         name="text"
-                        placeholder="YOUR MESSAGE*"
-                        className={`${inputStyles} animation-delay-700 fade-in-up h-40 resize-none delay-300 [clip-path:polygon(0%_10px,10px_0%,100%_0%,100%_100%,0%_100%)]`}
+                        placeholder={`${t.contact.message}*`}
+                        className={`${inputStyles} no-drag-scroll animation-delay-700 fade-in-up h-40 resize-none overflow-hidden delay-300 [clip-path:polygon(0%_10px,10px_0%,100%_0%,100%_100%,0%_100%)]`}
                         value={formData.text}
                         onChange={handleChange}
                     />
@@ -139,7 +137,7 @@ function CustomForm() {
                 {errors.text && <p className={errorStyles}>{errors.text}</p>}
             </div>
 
-            <Button text="SUBMIT" onClick={handleSubmit} color="black" />
+            <Button text={t.contact.button} onClick={handleSubmit} color="black" />
         </form>
     );
 }

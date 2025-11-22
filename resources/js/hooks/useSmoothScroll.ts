@@ -84,6 +84,11 @@ export const useSmoothScroll = (isModalOpen: React.RefObject<boolean>) => {
         handleMouseDown: (e: React.MouseEvent) => {
             if (e.button !== 0) return;
 
+            const el = e.target as HTMLElement;
+            if (el.closest('.no-drag-scroll')) {
+                return;
+            }
+
             currentScroll.current = window.scrollY;
             targetScroll.current = window.scrollY;
 

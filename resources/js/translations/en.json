@@ -12,41 +12,52 @@
     },
     "profession": {
         "title": "FULL-STACK ENGINEER",
-        "subtitle": "Frontend Developer",
-        "moreInfo": "more info",
-        "button": "Learn More"
+        "subtitle": "I am a full stack developer: I create websites and applications that look beautiful, work quickly, and process data reliably. I can work with both the external interface and the internal logic of the site, as well as design interfaces in Figma.",
+        "moreInfo": "On the front end, I use React and Vue with TypeScript to ensure that the code is accurate and reliable and that the applications run without errors. Tailwind and Shadcn UI help me create responsive and modern designs that are equally convenient to use on any device. On the backend, I work with PHP and Laravel: I create systems with user registration and authorisation via Sanctum tokens, data processing, and content management. I configure caching and queues for fast and secure website performance and integrate external services via API. In addition, I optimise interfaces, deploy to the server, and monitor stability and performance. I use AI tools to speed up development, improve code, and automate routine tasks. My projects include many small and medium-sized applications (which can be found on GitHub), as well as large projects such as a music platform and an administrative panel, demonstrating how interface and functionality can work together effectively.",
+        "buttonOpen": "Learn More",
+        "buttonClose": "Collapse"
     },
     "aboutMe": {
         "title": "ABOUT ME",
-        "subtitle": "ABout",
-        "frontend": "fronttext",
-        "backend": "backendtext",
-        "otherSkills": "backendtext"
+        "subtitle": "I have been involved in web development for over two years. I started with front-end development, creating user-friendly interfaces, then expanded my skills to back-end development to ensure that websites are fully functional and scalable. I love developing projects that are user-friendly. I am constantly learning new technologies to ensure that the code is high-quality, secure, and modern.",
+        "frontend": "I create fast and reliable interfaces with React, Vue, and TypeScript, develop responsive modern designs using Tailwind and Shadcn UI, optimise speed and usability on all devices, and connect external services via API",
+        "backend": "I work with PHP and Laravel, creating systems with user registration and authorisation via Sanctum tokens, data processing and content management. I configure caching and queues for secure and fast website operation",
+        "otherSkills": "I am proficient in working with UX and Figma, deploying websites to servers, integrating APIs, and monitoring application stability and performance. I also use AI tools to speed up my work, improve code, and automate routine tasks"
     },
     "skills": {
         "title": "SKILLS",
         "subtitle": "USING NOW",
-        "button": "More Info"
+        "otherSkills": "OTHER SKILLS",
+        "en": "English",
+        "ru": "Russian",
+        "am": "Armenian",
+        "buttonOpen": "More Info",
+        "buttonClose": "Close"
     },
     "portfolio": {
         "title": "PORTFOLIO",
-        "1": "All",
-        "2": "Luxe Music",
-        "3": "Admin Panel",
-        "button": "And many more to come!"
+        "all": "All",
+        "bottom": "And many more to come!"
     },
     "contact": {
         "title": "CONTACT",
-        "subtitle": "Subtitle",
+        "subtitle": "For questions regarding cooperation, website development, or projects, you can write using the form.",
         "name": "ENTER YOUR NAME",
+        "nameError": "Enter your name",
         "email": "ENTER YOUR EMAIL",
+        "emailError": "ENTER YOUR EMAIL",
         "phone": "PHONE NUMBER",
+        "phoneError1": "Phone must contain at least 3 digits",
+        "phoneError2": "Only numbers and + are allowed",
+        "phoneError3": "Phone must contain no more than 20 digits",
         "message": "YOUR MESSAGE",
+        "messageError1": "Write your message",
+        "messageError2": "Maximum 250 characters allowed",
         "button": "SUBMIT"
     },
     "footer": {
         "button": "BACK TO TOP",
-        "name": "Roman Babayan",
-        "rights": "All Eights Reserved"
+
+        "rights": "All Eights Reserved."
     }
 }

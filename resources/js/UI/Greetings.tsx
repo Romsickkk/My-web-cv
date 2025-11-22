@@ -49,14 +49,15 @@ function Greetings() {
                     style={{ x: smoothX, opacity: scrollOpacity }}
                 >
                     <div className="flex flex-col">
-                        <h2 className="font-raleway mb-3 text-[clamp(20px,5vw,40px)] font-bold whitespace-nowrap text-black max-lg:mb-[-10px] max-lg:text-white">
+                        <h2 className="font-raleway text-[clamp(20px,5vw,40px)] font-bold text-nowrap whitespace-nowrap text-black max-lg:mb-[-10px] max-lg:text-white">
                             {t.welcome.greetings}
                         </h2>
                         <SplitText
+                            key={lang}
                             text={t.welcome.name}
-                            className={`font-raleway -ml-1 font-bold text-black mix-blend-difference max-lg:text-white ${lang === 'am' ? 'text-[clamp(30px,10vw,60px)] max-lg:text-[clamp(30px,10vw,30px)]' : 'text-[clamp(30px,10vw,80px)] max-lg:text-[clamp(30px,10vw,50px)]'}`}
+                            className={`font-raleway font-bold text-nowrap text-black mix-blend-difference max-lg:text-white ${lang === 'am' ? 'text-[clamp(30px,10vw,60px)] max-lg:text-[clamp(30px,10vw,30px)]' : '-ml-1 text-[clamp(30px,10vw,80px)] max-lg:text-[clamp(30px,10vw,50px)]'}`}
                         />
-                        <h3 className="font-raleway text-[clamp(20px,10vw,25px)] font-extrabold text-nowrap text-[#909090] underline max-lg:mt-[-10px] max-lg:text-[clamp(15px,10vw,20px)] max-lg:text-white">
+                        <h3 className="font-raleway text-[clamp(20px,10vw,25px)] font-extrabold text-nowrap text-[#909090] underline max-lg:mt-[-10px] max-lg:text-[clamp(15px,10vw,20px)] max-lg:text-[#a0a0a0]">
                             {t.welcome.specialty}
                         </h3>
                     </div>

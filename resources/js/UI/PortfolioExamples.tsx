@@ -1,5 +1,6 @@
 import useEmblaCarousel from 'embla-carousel-react';
 
+import { useT } from '@/context/LangContext';
 import { isModalOpen } from '@/services/modalLock';
 import { enableScroll } from '@/services/scrollLock';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -10,6 +11,7 @@ function PortfolioExamples() {
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: false, align: 'start' });
     const [selectedIndex, setSelectedIndex] = useState(0);
     const [selectedImage, setSelectedImage] = useState<string | null>(null);
+    const t = useT();
 
     const luxeMusicImgs = Array.from({ length: 6 }, (_, i) => `Luxe${i + 1}.webp`);
     const adminImgs = Array.from({ length: 6 }, (_, i) => `Admin${i + 1}.webp`);
@@ -49,7 +51,7 @@ function PortfolioExamples() {
                 <div className="relative mb-5 flex justify-center gap-10 max-md:gap-2">
                     <div className="absolute bottom-0 left-0 h-[2px] w-full bg-gray-500 before:absolute before:left-[-20px] before:h-[2px] before:w-[20px] before:bg-gray-500 after:absolute after:right-[-20px] after:h-[2px] after:w-[20px] after:bg-gray-500"></div>
 
-                    {['All', 'LuxeMusic', 'Admin Panel'].map((name, index) => (
+                    {['All', 'Luxe Music', 'Admin Panel'].map((name, index) => (
                         <button
                             key={name}
                             onClick={() => scrollTo(index)}
@@ -59,7 +61,7 @@ function PortfolioExamples() {
                                     : 'after:scale-x-0 after:bg-white hover:after:scale-x-100'
                             }`}
                         >
-                            {name}
+                            {name === 'All' ? t.portfolio.all : name}
                         </button>
                     ))}
                 </div>

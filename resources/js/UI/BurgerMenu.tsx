@@ -1,10 +1,12 @@
+import { useT } from '@/context/LangContext';
 import { useSmoothNavigation } from '@/hooks/useSmoothNavigation';
 import { useEffect, useState } from 'react';
+import LangSwitcher from './LangSwitcher';
 
 function BurgerMenu() {
     const [isOpen, setIsOpen] = useState(false);
     const { scrollTo } = useSmoothNavigation();
-
+    const t = useT();
     const handleNavClick = (elementId: string) => {
         const element = document.getElementById(elementId);
         if (element) {
@@ -13,9 +15,14 @@ function BurgerMenu() {
     };
 
     useEffect(() => {
+        const onClose = () => {
+            setIsOpen(false);
+        };
+
         if (isOpen) {
             document.documentElement.style.overflow = 'hidden';
             document.body.style.overflow = 'hidden';
+            window.addEventListener('scroll', onClose);
         } else {
             document.documentElement.style.overflow = '';
             document.body.style.overflow = '';
@@ -41,6 +48,7 @@ function BurgerMenu() {
 
             <label
                 htmlFor="burger-checkbox"
+                onClick={(e) => e.stopPropagation()}
                 className="relative z-[2000] mx-auto my-2 mr-5 block h-[26px] w-10 cursor-pointer border-none bg-transparent"
             >
                 <div
@@ -75,7 +83,7 @@ function BurgerMenu() {
                         }}
                         className={`${linkBase} hover:bg-opacity-20 block w-full cursor-pointer border-none bg-none px-2 py-2 transition-colors hover:bg-white`}
                     >
-                        About me
+                        {t.nav.about}
                     </button>
                 </li>
 
@@ -87,7 +95,7 @@ function BurgerMenu() {
                         }}
                         className={`${linkBase} hover:bg-opacity-20 block w-full px-2 py-2 transition-colors hover:bg-white`}
                     >
-                        Skills
+                        {t.nav.skills}
                     </button>
                 </li>
                 <li>
@@ -98,7 +106,7 @@ function BurgerMenu() {
                         }}
                         className={`${linkBase} hover:bg-opacity-20 block w-full px-2 py-2 transition-colors hover:bg-white`}
                     >
-                        Portfolio
+                        {t.nav.portfolio}
                     </button>
                 </li>
                 <li className="flex justify-center pt-4">
@@ -109,8 +117,12 @@ function BurgerMenu() {
                         }}
                         className="hover:bg-opacity-20 text-bold block w-full bg-white px-2 py-2 text-black transition-colors"
                     >
-                        CONTACT ME
+                        {t.nav.contacts}
                     </button>
+                </li>
+
+                <li className="mt-4 flex w-full justify-center">
+                    <LangSwitcher onClick={() => setIsOpen(false)} />
                 </li>
             </ul>
         </div>

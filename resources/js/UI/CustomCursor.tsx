@@ -42,11 +42,18 @@ function CustomCursor() {
 
             let targetWidth = 32;
             const el = document.elementFromPoint(targetX, targetY);
+
             if (!mouseDown && el) {
                 let node: HTMLElement | null = el as HTMLElement;
                 let isClickable = false;
+                let blockScale = false;
 
                 while (node) {
+                    if (node.classList.contains('cursor-block')) {
+                        blockScale = true;
+                        break;
+                    }
+
                     if (
                         node.tagName === 'BUTTON' ||
                         node.tagName === 'A' ||
@@ -57,13 +64,19 @@ function CustomCursor() {
                         isClickable = true;
                         break;
                     }
+
                     if (node.tagName === 'INPUT' || node.tagName === 'TEXTAREA') {
                         targetWidth = 3;
                     }
+
                     node = node.parentElement;
                 }
 
-                targetScale = isClickable ? 1.7 : 1;
+                if (blockScale) {
+                    targetScale = 1;
+                } else {
+                    targetScale = isClickable ? 1.7 : 1;
+                }
             }
 
             const currentWidth = parseFloat(cursor.style.width) || 32;

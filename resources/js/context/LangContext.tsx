@@ -1,7 +1,7 @@
 import translations from '@/translations';
-import { createContext, ReactNode, useContext, useState } from 'react';
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react';
 
-type Lang = 'en' | 'ru' | 'am';
+export type Lang = 'en' | 'ru' | 'am';
 
 interface LangContextType {
     lang: Lang;
@@ -11,13 +11,19 @@ interface LangContextType {
 const LangContext = createContext<LangContextType | undefined>(undefined);
 
 export const LangProvider = ({ children }: { children: ReactNode }) => {
-    const [lang, setLang] = useState<Lang>('en');
+    const localLang = localStorage.getItem('lang') as Lang;
+    const [lang, setLang] = useState<Lang>(localLang || 'en');
+
+    useEffect(() => {
+        localStorage.setItem('lang', lang);
+    }, [lang]);
 
     return <LangContext.Provider value={{ lang, setLang }}>{children}</LangContext.Provider>;
 };
 
 export const useLang = () => {
     const context = useContext(LangContext);
+
     if (!context) throw new Error('useLang must be used within LangProvider');
     return context;
 };
