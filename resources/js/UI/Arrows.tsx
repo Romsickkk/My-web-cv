@@ -1,6 +1,6 @@
-function Arrows() {
+function Arrows(key?: any) {
     return (
-        <div className="m-15 flex items-center space-x-5 p-6">
+        <div key={key} className="m-15 flex items-center space-x-5 p-6">
             <div className="animate-draw-x-right h-1 w-16 rounded bg-black opacity-0"></div>
 
             <div className="flex flex-row space-x-2">

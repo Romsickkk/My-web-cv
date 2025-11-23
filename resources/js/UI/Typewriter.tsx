@@ -1,33 +1,38 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 type Props = {
     className: string;
+    id: string;
     text: string;
     speed?: number;
 };
 
-function Typewriter({ className, text, speed = 50 }: Props) {
+function Typewriter({ className, id = '', text, speed = 50 }: Props) {
     const [displayedText, setDisplayedText] = useState('');
+    const indexRef = useRef(0);
 
     useEffect(() => {
-        let i = 0;
-        let interval: NodeJS.Timeout;
+        setDisplayedText('');
+        indexRef.current = 0;
 
-        interval = setInterval(() => {
-            if (i + 1 < text.length) {
-                setDisplayedText((prev) => prev + text[i]);
-                i++;
+        const interval = setInterval(() => {
+            if (indexRef.current < text.length) {
+                const char = text[indexRef.current];
+                setDisplayedText((prev) => prev + char);
+                indexRef.current++;
             } else {
                 clearInterval(interval);
             }
         }, speed);
 
-        return () => {
-            clearInterval(interval);
-        };
+        return () => clearInterval(interval);
     }, [text, speed]);
 
-    return <p className={className}>{displayedText}</p>;
+    return (
+        <p id={id} className={className}>
+            {displayedText}
+        </p>
+    );
 }
 
 export default Typewriter;

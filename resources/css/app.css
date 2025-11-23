@@ -12,11 +12,28 @@
 }
 
 /* Global styles */
+* {
+    cursor: none !important;
+}
+
+body {
+    -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0px 1000px #d6d6d6 inset !important;
+    -webkit-text-fill-color: black !important;
+}
+
 img {
     -webkit-user-drag: none;
     user-drag: none;
-    /* pointer-events: none; */
 }
+
 /*  */
 .font-montserrat {
     font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
@@ -28,6 +45,7 @@ img {
 .font-open-sans {
     font-family: 'Open Sans', ui-sans-serif, system-ui, sans-serif;
 }
+
 /* Shake for button */
 @keyframes shake {
     0% {
@@ -95,7 +113,6 @@ img {
 }
 
 /* Draw borders */
-/* горизонтальные линии: центр → края */
 @keyframes borderXFromCenter {
     0% {
         transform: scaleX(0);
@@ -106,11 +123,10 @@ img {
 }
 
 .animate-borderX {
-    transform-origin: center; /* центр линии как точка роста */
+    transform-origin: center;
     animation: borderXFromCenter 0.6s ease-out forwards;
 }
 
-/* вертикальные линии: сверху и снизу к центру */
 @keyframes borderYFromEdges {
     0% {
         transform: scaleY(0);
@@ -171,12 +187,28 @@ img {
         transform: translateY(0);
     }
 }
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
 
 .fade-in-up {
     opacity: 0;
     animation: fadeInUp 1s forwards ease-out;
 }
+.fade-in-down {
+    opacity: 0;
+    animation: fadeInDown 0.5s forwards ease-in;
+}
 
+::selection {
+    background: #000000;
+    color: rgb(255, 255, 255);
+}
 /* Animation from center */
 @keyframes fadeInCenter {
     0% {
@@ -189,9 +221,26 @@ img {
     }
 }
 .fade-in-center {
-    animation: fadeInCenter 0.5s ease-out forwards;
+    animation: fadeInCenter 1s ease-out forwards;
 }
 
+@keyframes growWidth {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes growHeight {
+    from {
+        height: 0;
+    }
+    to {
+        height: 100%;
+    }
+}
 /* Animation delays timer */
 .animation-delay-100 {
     animation-delay: 0.3s;

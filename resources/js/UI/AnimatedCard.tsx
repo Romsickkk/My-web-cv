@@ -1,6 +1,7 @@
 function AnimatedCard({ name, className }: { name: string; className?: string }) {
     return (
         <h2
+            key={name}
             className={`fade-in-up font-montserrat relative mb-15 flex h-20 w-80 items-center justify-center text-2xl font-bold select-none ${className}`}
         >
             {name}

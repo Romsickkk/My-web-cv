@@ -1,3 +1,4 @@
+import { useT } from '@/context/LangContext';
 import { useEffect, useRef, useState } from 'react';
 
 function FadeInOnView({ children }: { children: React.ReactNode }) {
@@ -5,6 +6,7 @@ function FadeInOnView({ children }: { children: React.ReactNode }) {
     const measureRef = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState(false);
     const [size, setSize] = useState<{ w: number; h: number }>({ w: 0, h: 0 });
+    const t = useT();
 
     useEffect(() => {
         if (!measureRef.current) return;
@@ -20,6 +22,8 @@ function FadeInOnView({ children }: { children: React.ReactNode }) {
     }, []);
 
     useEffect(() => {
+        const isMobile = window.innerWidth < 768;
+        const threshold = isMobile ? 0.3 : 0.7;
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
@@ -27,7 +31,7 @@ function FadeInOnView({ children }: { children: React.ReactNode }) {
                     observer.disconnect();
                 }
             },
-            { threshold: 0.7 },
+            { threshold },
         );
 
         if (ref.current) observer.observe(ref.current);
@@ -38,18 +42,28 @@ function FadeInOnView({ children }: { children: React.ReactNode }) {
     if (!isVisible) {
         return (
             <>
-                <div ref={ref} style={{ width: size.w, height: size.h }} />
+                <div ref={ref} style={{ width: '100%', height: size.h }} />
 
-                <div ref={measureRef} style={{ position: 'absolute', visibility: 'hidden', pointerEvents: 'none' }}>
+                <div
+                    ref={measureRef}
+                    style={{
+                        position: 'fixed',
+
+                        left: 0,
+                        right: 0,
+                        width: '100%',
+                        visibility: 'hidden',
+                        pointerEvents: 'none',
+                    }}
+                >
                     {children}
                 </div>
             </>
         );
     }
 
-    // 2. Когда видно → анимируем реальный контент
     return (
-        <div ref={ref} className="transform transition-all duration-100 ease-out">
+        <div ref={ref} key={t} className="transform transition-all duration-100 ease-out">
             {children}
         </div>
     );
