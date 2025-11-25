@@ -1,25 +1,21 @@
 import { useT } from '@/context/LangContext';
+
+import sendForm from '@/services/sendForm';
 import { useState } from 'react';
 import { z } from 'zod';
 import Button from './Button';
+type CustomFormProps = {
+    setSended: React.Dispatch<React.SetStateAction<boolean>>;
+    isLoading: React.Dispatch<React.SetStateAction<boolean>>;
+};
 
-function CustomForm() {
+function CustomForm({ setSended, isLoading }: CustomFormProps) {
+    //
     type FormData = z.infer<typeof formSchema>;
-    const inputStyles = ' shadow-md focus:outline-none font-montserrat font-bold p-2 w-full max-w-md ';
-    const errorStyles = 'font-montserrat mt-1 text-sm font-bold text-red-500';
-
-    const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
-    const [formData, setFormData] = useState<FormData>({
-        username: '',
-        email: '',
-        phone: '',
-        text: '',
-    });
-
     const t = useT();
     const formSchema = z.object({
-        username: z.string().min(1, t.contact.nameError),
-        email: z.email(t.contact.emailError),
+        username: z.string().min(1, t.contact.nameError1).max(50, t.contact.nameError2),
+        email: z.email(t.contact.emailError1).max(50, t.contact.emailError2),
         phone: z
             .string()
             .optional()
@@ -35,23 +31,50 @@ function CustomForm() {
         text: z.string().min(1, t.contact.messageError1).max(250, t.contact.messageError2),
     });
 
+    //
+    const inputStyles = ' shadow-md focus:outline-none font-montserrat font-bold p-2 w-full max-w-md ';
+    const errorStyles = 'font-montserrat mt-1 text-sm font-bold text-red-500';
+
+    const [errors, setErrors] = useState<Partial<Record<keyof FormData, string>>>({});
+    const [isError, setIsError] = useState(false);
+
+    const [formData, setFormData] = useState<FormData>({
+        username: '',
+        email: '',
+        phone: '',
+        text: '',
+    });
+
     function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
         const { name, value } = e.target;
 
-        setFormData((prev) => ({
-            ...prev,
-            [name]: name === 'phone' ? value.replace(/[^\d+]/g, '').replace(/(?!^)\+/g, '') : value,
-        }));
+        setFormData((prev) => {
+            let newValue = value;
+
+            if (name === 'username') {
+                newValue = value.replace(/[^\p{L}\s]/gu, '');
+            }
+
+            if (name === 'phone') {
+                newValue = value.replace(/[^\d+]/g, '').replace(/(?!^)\+/g, '');
+            }
+
+            return { ...prev, [name]: newValue };
+        });
     }
 
-    function handleSubmit(e: React.FormEvent) {
+    async function handleSubmit(e: React.FormEvent) {
         e.preventDefault();
+
+        setTimeout(() => {
+            setIsError(false);
+        }, 3000);
         setErrors({});
-        console.log('click');
+
         const result = formSchema.safeParse(formData);
         if (!result.success) {
             const fieldErrors: Partial<Record<keyof FormData, string>> = {};
-            console.log('Error:', formData);
+
             result.error.issues.forEach((issue) => {
                 const field = issue.path[0] as keyof FormData;
                 if (!fieldErrors[field]) {
@@ -62,11 +85,27 @@ function CustomForm() {
             setErrors(fieldErrors);
             return;
         }
+
+        try {
+            isLoading(true);
+            await sendForm(formData);
+
+            // console.log(response);
+            isLoading(false);
+            setSended(true);
+        } catch (error) {
+            isLoading(false);
+            // console.log(error);
+            setIsError(true);
+
+            setTimeout(() => {
+                setIsError(false);
+            }, 2000);
+        }
     }
     return (
         <form onSubmit={handleSubmit} className="fade-in-up flex w-150 flex-col items-center gap-10 px-5 duration-300 max-sm:w-100">
             {/* Username */}
-
             <div className="w-full max-w-md">
                 <div className="animation-delay-100 fade-in-up relative w-full max-w-md overflow-hidden">
                     <input
@@ -136,8 +175,17 @@ function CustomForm() {
 
                 {errors.text && <p className={errorStyles}>{errors.text}</p>}
             </div>
-
             <Button text={t.contact.button} onClick={handleSubmit} color="black" />
+            {isError && (
+                <div className="fixed inset-0 z-50 flex items-center justify-center">
+                    <a
+                        href="https://mail.google.com/mail/?view=cm&fs=1&to=roman.babayan1133@gmail.com"
+                        className="animate-fadeInOut text-bold rounded-lg bg-black/70 px-6 py-3 text-xl font-bold text-white underline"
+                    >
+                        {t.contact.formErrorMessage}
+                    </a>
+                </div>
+            )}
         </form>
     );
 }

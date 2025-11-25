@@ -14,10 +14,10 @@ function Footer() {
                 <a href="https://t.me/roma1133" target="_blank">
                     <img draggable={false} src="/icon-telegram.svg" alt="telegram" className="h-7 w-7" />
                 </a>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=roman.babayan1133@gmail.com" target="_blank">
+                <a href="https://www.linkedin.com/in/roman-babayan-319a87270/?locale=en" target="_blank">
                     <img draggable={false} src="/icon-linkedin.svg" alt="linkedin" className="h-6 w-6" />
                 </a>
-                <a href="https://www.linkedin.com/in/roman-babayan-319a87270/?locale=en" target="_blank">
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=roman.babayan1133@gmail.com" target="_blank">
                     <img draggable={false} src="/icon-gmail.svg" alt="gmail" className="h-6 w-6" />
                 </a>
             </div>

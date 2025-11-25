@@ -55,12 +55,15 @@ function LangSwitcher({ onClick }: LangSwitcherProps) {
 
     return (
         <div className="relative select-none" ref={ref}>
-            <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="cursor-pointer rounded border border-white bg-transparent px-3 py-1 font-bold text-white"
-            >
-                {lang.toUpperCase()}
-            </button>
+            <div className="">
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="flex cursor-pointer flex-row content-center items-center gap-1 rounded border border-white bg-transparent px-2 py-1 font-bold text-white"
+                >
+                    <img className="max-h-[1rem] invert" src="/globe-icon.svg" alt="HTML Logo" />
+                    {lang.toUpperCase()}
+                </button>
+            </div>
 
             <AnimatePresence>
                 {isOpen && (
@@ -82,7 +85,7 @@ function LangSwitcher({ onClick }: LangSwitcherProps) {
                                               handleSelect(l as Lang);
                                           }
                                 }
-                                className={`w-full cursor-pointer px-3 py-2 text-left font-bold hover:bg-white/10 ${
+                                className={`w-full cursor-pointer justify-center px-3 py-2 text-center font-bold hover:bg-white/10 ${
                                     lang === l ? 'cursor-block bg-white text-black underline' : 'text-white'
                                 }`}
                             >

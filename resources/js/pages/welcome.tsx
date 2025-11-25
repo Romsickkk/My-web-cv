@@ -14,6 +14,7 @@ export default function Welcome() {
 
     console.log('%cHELLO, FRIEND!', 'font-size: 40px; font-weight: bold; color: #d6d6d6; text-shadow: 2px 2px 0 #616161;');
     console.log('%cAll my code in GITHUB!', 'font-size: 40px; font-weight: bold; color: #d6d6d6; text-shadow: 2px 2px 0 #616161;');
+    console.log('https://github.com/Romsickkk/My-web-cv');
     return (
         <div
             onMouseDown={handleMouseDown}

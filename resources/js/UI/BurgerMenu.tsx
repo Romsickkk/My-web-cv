@@ -71,7 +71,7 @@ function BurgerMenu() {
             </label>
 
             <ul
-                className={`z-[2000]combined fixed top-0 left-0 z-500 m-0 mt-[65.px] flex h-screen w-screen list-none flex-col gap-3 bg-black/90 pt-20 shadow-lg transition-transform duration-300 ${
+                className={`combined fixed top-0 left-0 z-500 m-0 flex h-[100dvh] w-screen list-none flex-col gap-3 bg-black/90 pt-[65px] shadow-lg transition-transform duration-300 ${
                     isOpen ? 'translate-y-0' : '-translate-y-full'
                 }`}
             >
@@ -81,7 +81,7 @@ function BurgerMenu() {
                             handleNavClick('about');
                             setIsOpen(false);
                         }}
-                        className={`${linkBase} hover:bg-opacity-20 block w-full cursor-pointer border-none bg-none px-2 py-2 transition-colors hover:bg-white`}
+                        className={`${linkBase} block w-full cursor-pointer border-none bg-none px-2 py-2 transition-colors`}
                     >
                         {t.nav.about}
                     </button>
@@ -93,7 +93,7 @@ function BurgerMenu() {
                             handleNavClick('skills');
                             setIsOpen(false);
                         }}
-                        className={`${linkBase} hover:bg-opacity-20 block w-full px-2 py-2 transition-colors hover:bg-white`}
+                        className={`${linkBase} block w-full px-2 py-2 transition-colors`}
                     >
                         {t.nav.skills}
                     </button>
@@ -104,7 +104,7 @@ function BurgerMenu() {
                             handleNavClick('portfolio');
                             setIsOpen(false);
                         }}
-                        className={`${linkBase} hover:bg-opacity-20 block w-full px-2 py-2 transition-colors hover:bg-white`}
+                        className={`${linkBase} block w-full px-2 py-2 transition-colors`}
                     >
                         {t.nav.portfolio}
                     </button>
@@ -115,7 +115,7 @@ function BurgerMenu() {
                             handleNavClick('contact');
                             setIsOpen(false);
                         }}
-                        className="hover:bg-opacity-20 text-bold block w-full bg-white px-2 py-2 text-black transition-colors"
+                        className="text-bold block w-full bg-white px-2 py-2 text-black transition-colors"
                     >
                         {t.nav.contacts}
                     </button>

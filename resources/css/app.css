@@ -241,6 +241,69 @@ img {
         height: 100%;
     }
 }
+
+/* Loading animation */
+
+@keyframes bar {
+    0%,
+    100% {
+        transform: scaleY(0.4);
+    }
+    50% {
+        transform: scaleY(1);
+    }
+}
+
+.loader-bar-1 {
+    animation: bar 0.8s ease-in-out infinite;
+}
+
+.loader-bar-2 {
+    animation: bar 0.8s ease-in-out infinite 0.15s;
+}
+
+.loader-bar-3 {
+    animation: bar 0.8s ease-in-out infinite 0.3s;
+}
+
+/* Check animation */
+@keyframes drawCheck {
+    0% {
+        stroke-dasharray: 20;
+        stroke-dashoffset: 20;
+    }
+    100% {
+        stroke-dasharray: 20;
+        stroke-dashoffset: 0;
+    }
+}
+
+.animate-draw-check {
+    stroke-dasharray: 20;
+    stroke-dashoffset: 20;
+    animation: drawCheck 0.5s ease-out forwards;
+}
+
+/* Error form sending */
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.animate-fadeInOut {
+    animation: fadeInOut 3s ease-in-out forwards;
+}
+
 /* Animation delays timer */
 .animation-delay-100 {
     animation-delay: 0.3s;
@@ -285,6 +348,7 @@ img {
     animation-delay: 1.1s;
 }
 
+/* ============================================================================================================================================ */
 @theme inline {
     --radius-sm: calc(var(--radius) - 4px);
     --radius-md: calc(var(--radius) - 2px);
