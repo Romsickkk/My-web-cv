@@ -107,28 +107,33 @@ function Skills() {
 
             <FadeInOnView>
                 <div draggable={false} className="mb-20 md:w-[700px]">
-                    <h2 className="fade-in-up font-montserrat mb-10 h-15 w-80 text-2xl font-bold whitespace-nowrap select-none max-sm:text-center md:pl-5">
+                    <h2 className="fade-in-up font-montserrat mb-10 h-15 w-80 text-2xl font-bold select-none max-sm:text-center sm:whitespace-nowrap md:pl-5">
                         {t.skills.otherSkills}:
                     </h2>
                     <div>
-                        <div className="grid grid-cols-4 gap-20 max-sm:flex max-sm:flex-col">
+                        <div className="grid grid-cols-3 gap-20 max-sm:flex max-sm:flex-col">
                             <div className={` ${skillClass} animation-delay-100`}>
                                 <img className="h-15" src="/english-logo.svg" alt="HTML Logo" />
-                                <h3 className="font-montserrat">{t.skills.en}</h3>
+                                <h3 className="font-montserrat text-center">
+                                    {t.skills.en}
+                                    <p>B1/B2</p>
+                                </h3>
                             </div>
 
                             <div className={`${skillClass} animation-delay-200`}>
                                 <img className="h-15" src="/russ-logo.svg" alt="HTML Logo" />
-                                <h3 className="font-montserrat">{t.skills.ru}</h3>
+                                <h3 className="font-montserrat text-center">
+                                    {t.skills.ru}
+                                    <p>C1/C2</p>
+                                </h3>
                             </div>
 
                             <div className={`${skillClass} animation-delay-300`}>
                                 <img className="h-15" src="/arm-logo.svg" alt="HTML Logo" />
-                                <h3 className="font-montserrat">{t.skills.am}</h3>
-                            </div>
-                            <div className={`${skillClass} animation-delay-400`}>
-                                <img className="h-15" src="/ai-logo.svg" alt="HTML Logo" />
-                                <h3 className="font-montserrat text-center">AI</h3>
+                                <h3 className="font-montserrat text-center">
+                                    {t.skills.am}
+                                    <p>C1/C2</p>
+                                </h3>
                             </div>
                         </div>
                     </div>

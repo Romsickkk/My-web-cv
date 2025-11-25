@@ -22,12 +22,12 @@
         "subtitle": "I have been involved in web development for over two years. I started with front-end development, creating user-friendly interfaces, then expanded my skills to back-end development to ensure that websites are fully functional and scalable. I love developing projects that are user-friendly. I am constantly learning new technologies to ensure that the code is high-quality, secure, and modern.",
         "frontend": "I create fast and reliable interfaces with React, Vue, and TypeScript, develop responsive modern designs using Tailwind and Shadcn UI, optimise speed and usability on all devices, and connect external services via API",
         "backend": "I work with PHP and Laravel, creating systems with user registration and authorisation via Sanctum tokens, data processing and content management. I configure caching and queues for secure and fast website operation",
-        "otherSkills": "I am proficient in working with UX and Figma, deploying websites to servers, integrating APIs, and monitoring application stability and performance. I also use AI tools to speed up my work, improve code, and automate routine tasks"
+        "otherSkills": "Proficient in working with ready UX/UI designs and implementing precise pixel-perfect layouts based on Figma mockups. Deploying websites to servers, integrating APIs, and monitoring application stability and performance. I also use AI tools to speed up my work, improve code, and automate routine tasks"
     },
     "skills": {
         "title": "SKILLS",
         "subtitle": "USING NOW",
-        "otherSkills": "OTHER SKILLS",
+        "otherSkills": "LANGUAGE SKILLS",
         "en": "English",
         "ru": "Russian",
         "am": "Armenian",
@@ -43,9 +43,11 @@
         "title": "CONTACT",
         "subtitle": "For questions regarding cooperation, website development, or projects, you can write using the form.",
         "name": "ENTER YOUR NAME",
-        "nameError": "Enter your name",
+        "nameError1": "Enter your name",
+        "nameError2": "Name must contain no more than 50 digits",
         "email": "ENTER YOUR EMAIL",
-        "emailError": "ENTER YOUR EMAIL",
+        "emailError1": "ENTER YOUR EMAIL",
+        "emailError2": "Email must contain no more than 50 digits",
         "phone": "PHONE NUMBER",
         "phoneError1": "Phone must contain at least 3 digits",
         "phoneError2": "Only numbers and + are allowed",
@@ -53,6 +55,8 @@
         "message": "YOUR MESSAGE",
         "messageError1": "Write your message",
         "messageError2": "Maximum 250 characters allowed",
+        "formErrorMessage": "Something went wrong, you can write to me by email.",
+        "messageSended": "Message sent!",
         "button": "SUBMIT"
     },
     "footer": {

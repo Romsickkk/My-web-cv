@@ -1,4 +1,4 @@
-import { useLang, useT } from '@/context/LangContext';
+import { useT } from '@/context/LangContext';
 import { useSmoothNavigation } from '@/hooks/useSmoothNavigation';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
@@ -25,13 +25,13 @@ function NavBar() {
             scrollTo(element.offsetTop, 2500);
         }
     };
-    const { lang } = useLang();
+
     return (
         <motion.nav
             className={`font-montserrat z-20 flex content-center items-center gap-8 text-white ${
                 isSticky
                     ? `fade-in-down no-drag-scroll fixed top-0 right-0 w-full justify-end bg-black/95 py-3 shadow-lg lg:pr-50`
-                    : `absolute top-0 right-0 mt-7 mr-2 lg:pr-50`
+                    : `5 absolute top-0 right-0 mt-7 mr-2 lg:pr-50`
             }`}
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
