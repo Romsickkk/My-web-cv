@@ -8,4 +8,4 @@ Route::get('/', function () {
     return Inertia::render('welcome');
 })->name('home');
 
-Route::post('/form', [FormController::class, 'submit'])->middleware('throttle:3,1');;
+Route::post('/form', [FormController::class, 'submit'])->middleware('throttle:3,1');

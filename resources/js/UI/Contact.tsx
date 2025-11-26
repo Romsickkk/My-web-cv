@@ -40,7 +40,7 @@ function Contact() {
             )}
             {/* no-drag-scroll */}
             <div
-                className={`fixed inset-0 z-[9999] flex items-center justify-center bg-white/50 backdrop-blur-none transition-all duration-500 ${isLoading ? 'pointer-events-auto opacity-100 backdrop-blur-sm' : 'pointer-events-none opacity-0'} `}
+                className={`no-drag-scroll fixed inset-0 z-[200] flex items-center justify-center bg-white/50 backdrop-blur-none transition-all duration-500 ${isLoading ? 'pointer-events-auto opacity-100 backdrop-blur-sm' : 'pointer-events-none opacity-0'} `}
             >
                 <div className="flex items-end gap-1">
                     <div className="loader-bar-1 h-10 w-2 bg-black"></div>
